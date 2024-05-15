@@ -5,7 +5,6 @@ package org.lessons.java.shop;
 Usate opportunamente i livelli di accesso (public, private), i costruttori, i metodi getter e setter ed eventuali altri metodi 
 di “utilità” per fare in modo che: 
 
-- il prodotto esponga un metodo per avere il prezzo comprensivo di iva 
 - il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome 
 Nello stesso package aggiungete una classe Main con metodo main nella quale testate tutte le funzionalità della classe Prodotto.
 BONUS: create un metodo (statico) che restituisca il codice con un pad left di 0 per arrivare a 8 caratteri 
@@ -42,6 +41,24 @@ public class Prodotto {
 		String prezzoString = prezzo + "";
 		System.out.println("Il prezzo base del prodotto è: " + prezzoString);
 	}
+	
+	// - il prodotto esponga un metodo per avere il prezzo comprensivo di iva 
+	public double calcolaIva(Double prezzo) {
+		iva = prezzo * 22 / 100 ;
+		return iva;
+	}
+	
+	public String prezzoTot(Double prezzo, Double iva) {
+		Double prezzoTot = prezzo + iva;
+		String prezzoTotString = prezzoTot + "";
+		return prezzoTotString;
+	}
+	
+	// - il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome 
+	public String stampaNome(String codice, String nome) {
+		String codiceNome = codice + "-" + nome;
+		return codiceNome;
+	}
 
 	// - il codice prodotto sia accessibile solo in lettura 
 	// - gli altri attributi siano accessibili sia in lettura che in scrittura 
@@ -76,10 +93,6 @@ public class Prodotto {
 
 	public double getIva() {
 		return iva;
-	}
-
-	public void setIva(double iva) {
-		this.iva = iva;
 	}
 }
 
