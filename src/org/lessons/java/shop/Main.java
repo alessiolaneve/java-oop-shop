@@ -17,6 +17,7 @@ public class Main {
 		
 		System.out.println("Prezzo (Inserisci un numero con la virgola e due cifre decimali):");
 		Double prezzo = scan.nextDouble();
+		scan.nextLine();
 		prodotto.setPrezzo(prezzo);
 		prodotto.calcolaIva(prezzo);
 		Double iva = prodotto.getIva();
